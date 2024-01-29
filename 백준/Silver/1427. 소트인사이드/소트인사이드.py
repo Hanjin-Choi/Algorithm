@@ -1,0 +1,5 @@
+L= list(map(int,list(input())))
+L.sort(reverse=True)
+L = list(map(str,L))
+a="".join(L)
+print(a)
