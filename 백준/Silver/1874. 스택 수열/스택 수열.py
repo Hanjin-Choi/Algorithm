@@ -1,33 +1,20 @@
-import sys
-input = sys.stdin.readline
+# 스택 수열
+n = int(input())
+stack = []
+count = 1
+result = []
 
-N = int(input())
-L = [0]*N
-arr = []
-ans = ''
-for i in range(N):
-    L[i] = int(input())
-count =0
-for j in range(N):
-    if count<L[j]:
-        for x in range(count+1,L[j]+1):
-            count+=1
-            arr.append(x)
-            ans +='+\n'
-        arr.pop()
-        ans += '-\n'
+for i in range(1, n + 1):
+    num = int(input())
+    while count <= num:
+        stack.append(count)
+        count += 1
+        result.append("+")
+    if stack[-1] == num:
+        stack.pop()
+        result.append("-")
     else:
-        if len(arr)==0:
-            ans +='NO'
-        else:
-            while len(arr):
-                a= arr.pop()
-                if a == L[j]:
-                    ans += '-\n'
-                    break
-                else:
-                    ans += '-\n'
-if "NO" in ans:
-    print('NO')
-else:
-    print(ans[:-1])
+        print("NO")
+        exit(0)
+
+print("\n".join(result))
