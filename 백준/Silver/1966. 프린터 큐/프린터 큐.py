@@ -9,17 +9,17 @@ for i in range(t):
     sequence.sort(reverse=True)
     print_num = 0
     count_num = 0
-    que = arr+[0]*10*n
-    for j in range(10*n):
+    que = arr*n
+    for j in range(n**2):
         if que[j] == sequence[print_num]:
-            if j < 2*n:
+            if j <n**2-n:
                 que[j+n]=0
             print_num +=1
             count_num +=1
             if j ==q:
                 break
         else:
-            if j<9*n:
+            if j<n**2-n:
                 que[j+n]=que[j]
                 if j==q:
                     q += n
