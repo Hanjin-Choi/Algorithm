@@ -8,15 +8,14 @@ else:
 max_count=0
 max_list =[]
 for i in range(s,e):
-    temp = [n,i]
-    count_list=2 # 2개가 들어있으니깐
+    temp = [n]
+    count_list=1 # 2개가 들어있으니깐
     a=n
     b=i
     while b>=0:
+        temp.append(b)
+        count_list += 1
         a, b= b,a-b
-        if b>=0:
-            count_list +=1
-            temp.append(b)
     if count_list> max_count:
         max_count =count_list
         max_list=temp[:]
