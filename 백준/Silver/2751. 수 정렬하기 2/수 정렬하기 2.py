@@ -1,9 +1,7 @@
 import sys
-n= int(sys.stdin.readline())
-l=[0]*n
-for _ in range(n):
-    a= int(sys.stdin.readline())
-    l[_]=a
+input = sys.stdin.readline
+n= int(input())
+l = [int(input().rstrip()) for _ in range(n)]
 l.sort()
-for i in l:
-    print(i)
+ans = '\n'.join(map(str,l))
+print(ans)
