@@ -4,21 +4,18 @@ n=int(input())
 for _ in range(n):
     s=input().strip()
     leng = len(s)
-    st = []
-    flag=0
+    count_bracket = 0
+    flag =0
     for i in range(leng):
         if s[i]=='(':
-            st.append(s[i])
-        elif st and s[i]==')':
-            a = st.pop()
-            if a!='(':
-                flag =1
-                break
+            count_bracket+=1
         else:
-            flag =1
+            count_bracket -=1
+        if count_bracket<0:
+            flag=1
             break
-    if st:
-        flag =1
+    if count_bracket !=0:
+        flag=1
     if flag:
         print("NO")
     else:
