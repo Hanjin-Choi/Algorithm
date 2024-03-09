@@ -1,10 +1,8 @@
-N = int(input())
-clap = 0
-num = 1
-while N:
-    for i in [3,6,9]:
-        if str(i) in str(num):
-            clap += str(num).count(str(i))
-    num +=1
-    N -= 1
+from collections import Counter
+n=int(input())
+num = []
+for i in range(1,n+1):
+    num+= list(str(i))
+dic = Counter(num)
+clap = dic['3']+dic['6']+dic['9']
 print(clap)
