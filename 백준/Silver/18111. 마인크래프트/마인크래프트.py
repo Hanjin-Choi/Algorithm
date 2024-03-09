@@ -27,4 +27,6 @@ for height in range(minn,maxx+1):
         height_max=height
     elif box>=0 and time_min==t and height_max<height:
         height_max=height
+    elif box<0:
+        break
 print(time_min,height_max)
