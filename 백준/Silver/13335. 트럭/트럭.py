@@ -6,17 +6,12 @@ t=0
 idx=0
 cnt=0
 while idx<n:
+    bridge.popleft()
     if sum(bridge)+al[idx]<=l:
-        bridge.popleft()
         bridge.append(al[idx])
         idx+=1
         t+=1
     else:
-        bridge.popleft()
-        if sum(bridge)+al[idx]<=l:
-            bridge.append(al[idx])
-            idx += 1
-        else:
-            bridge.append(0)
+        bridge.append(0)
         t+=1
 print(t+w)
