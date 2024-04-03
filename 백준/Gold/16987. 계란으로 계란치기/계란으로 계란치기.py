@@ -1,24 +1,15 @@
 import sys
 input = sys.stdin.readline
 
-def dfs(i):
+def dfs(i,breakegg):
     global maxx
-    if i<n:
-        breakegg=0
-        for x in range(n):
-            if sl[x]<=0:
-                breakegg+=1
-        if breakegg==n-1:
-            dfs(i+1)
+    if maxx==n:
+        return
     if i==n:
-        cnt=0
-        for j in range(n):
-            if sl[j]<=0:
-                cnt+=1
-        if maxx<cnt:
-            maxx=cnt
+        if maxx<breakegg:
+            maxx=breakegg
     elif sl[i]<=0:
-        dfs(i+1)
+        dfs(i+1,breakegg)
     else:
         for k in range(n):
             if i==k: continue
@@ -28,9 +19,18 @@ def dfs(i):
                 temp2=sl[k]
                 sl[i]-=wl[k]
                 sl[k]-=wl[i]
-                dfs(i+1)
+                wow=0
+                if sl[i]<=0:
+                    wow+=1
+                if sl[k]<=0:
+                    wow+=1
+                breakegg +=wow
+                dfs(i+1,breakegg)
+                breakegg-=wow
                 sl[i]=temp
                 sl[k]=temp2
+        else:
+            maxx=max(breakegg,maxx)
 n= int(input())
 sl = [0]*n
 wl = [0] *n
@@ -40,5 +40,5 @@ for idx in range(n):
     wl[idx]=w
 
 maxx=0
-dfs(0)
+dfs(0,0)
 print(maxx)
