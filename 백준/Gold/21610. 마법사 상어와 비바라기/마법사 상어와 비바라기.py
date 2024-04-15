@@ -7,7 +7,7 @@ ddr=[1,1,-1,-1]
 ddc=[1,-1,-1,1]
 def move_cloud(d,s):
     while cloud:
-        r,c = cloud.popleft()
+        r,c = cloud.pop()
         r += dr[d]*s
         c += dc[d]*s
         r%=n
@@ -24,7 +24,7 @@ def make_cloud():
 
 n,m = map(int,input().split())
 arr = [list(map(int,input().split())) for _ in range(n)]
-cloud =deque([(n-1,0),(n-1,1),(n-2,0),(n-2,1)])
+cloud =[(n-1,0),(n-1,1),(n-2,0),(n-2,1)]
 for _ in range(m):
     temp_cloud = set()
     d,s= map(int,input().split())
