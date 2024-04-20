@@ -24,14 +24,7 @@ def sum_happy():
                 total += 10**(cnt-1)
     return total
 
-n=int(input())
-arr = [[0]*n for _ in range(n)]
-like_friend= [0]*(n**2+1)
-for _ in range(n**2):
-    s,*ls =map(int,input().split())
-    ls=set(ls)
-    like_friend[s]=ls
-    status=[[[] for _ in range(5)] for _ in range(5)]
+def make_status():
     for row in range(n):
         for col in range(n):
             if not arr[row][col]:
@@ -46,5 +39,16 @@ for _ in range(n**2):
                         elif not arr[r][c]:
                             blank +=1
                 status[cnt][blank].append((row,col))
+
+
+n=int(input())
+arr = [[0]*n for _ in range(n)]
+like_friend= [0]*(n**2+1)
+for _ in range(n**2):
+    s,*ls =map(int,input().split())
+    ls=set(ls)
+    like_friend[s]=ls
+    status=[[[] for _ in range(5)] for _ in range(5)]
+    make_status()
     changearr()
 print(sum_happy())
