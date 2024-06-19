@@ -12,11 +12,11 @@ def dust():
     for row in range(r):
         for col in range(c):
             temp[row][col]+=arr[row][col]
-            if arr[row][col]>0:
+            if arr[row][col]>4:
                 for i in range(4):
                     rr=row+dm[i][0]
                     cc = col + dm[i][1]
-                    if 0<=rr<r and 0<=cc<c and (rr,cc)!=(con[0],0) and (rr,cc)!=(con[1],0):
+                    if 0<=rr<r and 0<=cc<c and arr[rr][cc]!=-1:
                         temp[rr][cc]+=arr[row][col]//5
                         temp[row][col]-=arr[row][col]//5
     return temp
