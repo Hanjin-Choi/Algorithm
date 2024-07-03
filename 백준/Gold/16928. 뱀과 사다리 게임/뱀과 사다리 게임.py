@@ -23,7 +23,7 @@ def bfs():
                 res[go]=cnt
                 q.append((go,cnt))
         else:
-            for i in range(1,7):
+            for i in range(6,0,-1):
                 go=now +i
                 if go<=100 and res[go]>cnt:
                     res[go]=cnt+1
