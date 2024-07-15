@@ -8,7 +8,7 @@ def move(ro,co):
     people=arr[ro][co]
     cnt=1
     q=deque([(ro,co)])
-    q2=deque([(ro,co)])
+    q2=[(ro,co)]
     visit[ro][co]=1
     while q:
         rr,cc=q.popleft()
@@ -25,9 +25,8 @@ def move(ro,co):
         return 0
     else:
         temp = people//cnt
-        while q2:
-            rr,cc=q2.popleft()
-            arr[rr][cc]=temp
+        for idx in range(cnt):
+            arr[q2[idx][0]][q2[idx][1]]=temp
         return 1
 
 
