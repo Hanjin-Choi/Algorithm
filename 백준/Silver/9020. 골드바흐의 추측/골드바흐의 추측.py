@@ -9,7 +9,12 @@ for i in range(2,10001):
 t=int(input())
 for _ in range(t):
     n=int(input())
-    for k in num:
-        if k<=n//2 and n-k in num:
-            ans=[k,n-k]
-    print(*ans)
+    x,y=n//2,n//2
+    while True:
+        if x in num and y in num:
+            print(x,y)
+            break
+        else:
+            x-=1
+            y+=1
+    
