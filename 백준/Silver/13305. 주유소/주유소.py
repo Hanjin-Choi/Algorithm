@@ -1,13 +1,15 @@
 n=int(input())
 di = list(map(int,input().split()))
 cost = list(map(int,input().split()))
-ans=di[n-2] * cost[n-2]
-dist=di[n-2]
+ans=0
+co=cost[0]
+dist=di[0]
 for i in range(1,n-1):
-    if dist * cost[n-2-i]<ans:
-        dist += di[n-2-i]
-        ans = dist * cost[n-2-i]
+    if co<cost[i] :
+        dist += di[i]
     else:
-        dist += di[n-2-i]
-        ans += di[n-2-i]*cost[n-2-i]
+        ans += dist*co
+        dist = di[i]
+        co=cost[i]
+ans += dist*co
 print(ans)
